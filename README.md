@@ -1,37 +1,50 @@
 # nacos-api-legacy-adapter
 
-独立仓库：<https://github.com/nacos-group/nacos-api-legacy-adapter>
+English | [简体中文](README_CN.md)
 
-本模块为 **兼容旧版本 HTTP API** 的适配层，提供 legacy v1/v2 接口的兼容实现，便于在 Nacos 升级后仍能支持尚未改造的旧客户端或调用方。
+Standalone Repository: <https://github.com/nacos-group/nacos-api-legacy-adapter>
 
-**使用说明：**
+This module is a **compatibility layer for legacy HTTP APIs**, providing compatible implementations of legacy v1/v2 interfaces to support old clients or callers that have not yet been migrated after Nacos upgrades.
 
-- 本模块**仅面向**迫切需要使用旧版本 API、或正在对旧客户端进行改造的用户**临时使用**。
-- **不保证**未来 Nacos 版本仍会保留或继续支持本模块，建议尽快迁移到新版本 API 与客户端。
+**Usage Instructions:**
+
+- This module is **only intended for temporary use** by users who urgently need legacy APIs or are in the process of migrating old clients.
+- There is **no guarantee** that future Nacos versions will retain or continue to support this module. It is recommended to migrate to the new version APIs and clients as soon as possible.
 
 ---
 
-## 构建
+## Build
 
-- **环境**：JDK 17+，Maven 3.6+
-- **版本对齐**：`pom.xml` 中 `nacos.version` 需与目标 Nacos 服务端版本一致（如 3.2.0）。
-- 若使用 Nacos 快照，需在 Maven 中配置 Nacos 快照仓库。
+- **Environment**: JDK 17+, Maven 3.6+
+- **Version Alignment**: The `nacos.version` in `pom.xml` must match the target Nacos server version (e.g., 3.2.0).
+- If using Nacos snapshots, configure the Nacos snapshot repository in Maven.
 
 ```bash
 mvn clean install
 ```
 
-构建产物：`target/nacos-api-legacy-adapter-${version}.jar`。
+Build artifact: `target/nacos-api-legacy-adapter-${version}.jar`.
 
 ---
 
-## 可插拔使用方式
+## Pluggable Usage
 
-本模块**非默认依赖**，仅当 JAR 出现在运行期 classpath 时生效；默认 Nacos 构建与启动不包含本模块。
+This module is **not a default dependency** and only takes effect when the JAR is present in the runtime classpath. The default Nacos build and startup do not include this module.
 
-### 需要 legacy API 时如何引入
+### How to Include Legacy API Support
 
-- **使用发行包**：将 `nacos-api-legacy-adapter-${version}.jar` 放入 Nacos 可加载的目录（如 `plugins`），保证在 classpath 中即可。
-- **自定义/嵌入应用**：在构建或运行 classpath 中增加对 `nacos-api-legacy-adapter` 的 Maven 依赖。
+- **Using Release Package**: Place `nacos-api-legacy-adapter-${version}.jar` in a directory that Nacos can load (such as `plugins`), ensuring it's in the classpath.
+- **Custom/Embedded Application**: Add the Maven dependency for `nacos-api-legacy-adapter` in your build or runtime classpath.
 
-无需改代码或配置；classpath 中存在该 JAR 时，模块会自动加载并生效。
+No code or configuration changes are required; the module will automatically load and take effect when the JAR is present in the classpath.
+
+---
+
+## Developer Notes
+
+This module is not guaranteed to be supported in future versions of Nacos. If developers wish to adapt this module themselves or help the community maintain and update it, they should follow these steps:
+
+1. First clone the [alibaba/nacos](https://github.com/alibaba/nacos) repository
+2. Follow the documentation at [https://nacos.io/docs/latest/contribution/source-code-run-and-start/](https://nacos.io/docs/latest/contribution/source-code-run-and-start/) to compile and package the main Nacos service locally
+
+This is necessary because the Nacos services this module depends on are not published to the central repository.
