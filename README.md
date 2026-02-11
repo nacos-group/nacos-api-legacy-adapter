@@ -42,4 +42,9 @@ No code or configuration changes are required; the module will automatically loa
 
 ## Developer Notes
 
-Since this module is not guaranteed to be supported in future versions of Nacos, if developers wish to adapt this module themselves or help the community maintain and update it, they should first clone the [alibaba/nacos](https://github.com/alibaba/nacos) repository and follow the documentation at [https://nacos.io/docs/latest/contribution/source-code-run-and-start/](https://nacos.io/docs/latest/contribution/source-code-run-and-start/) to compile and package the main Nacos service locally, as the Nacos services this module depends on are not published to the central repository.
+This module is not guaranteed to be supported in future versions of Nacos. If developers wish to adapt this module themselves or help the community maintain and update it, they should follow these steps:
+
+1. First clone the [alibaba/nacos](https://github.com/alibaba/nacos) repository
+2. Follow the documentation at [https://nacos.io/docs/latest/contribution/source-code-run-and-start/](https://nacos.io/docs/latest/contribution/source-code-run-and-start/) to compile and package the main Nacos service locally
+
+This is necessary because the Nacos services this module depends on are not published to the central repository.

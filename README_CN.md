@@ -42,4 +42,9 @@ mvn clean install
 
 ## 开发者须知
 
-由于本模块不保证未来版本 Nacos 仍然支持本模块，若开发者希望自行基于本模块自行适配或协助社区更新维护此模块，应该先拉取 [alibaba/nacos](https://github.com/alibaba/nacos) 仓库，并按照文档 [https://nacos.io/docs/latest/contribution/source-code-run-and-start/](https://nacos.io/docs/latest/contribution/source-code-run-and-start/) 进行 Nacos 主服务的本地编译和打包，因为本模块依赖的 Nacos 服务不会发布到中央仓库中。
+由于本模块不保证未来版本 Nacos 仍然支持本模块，若开发者希望自行基于本模块自行适配或协助社区更新维护此模块，应该先完成以下步骤：
+
+1. 拉取 [alibaba/nacos](https://github.com/alibaba/nacos) 仓库
+2. 按照文档 [https://nacos.io/docs/latest/contribution/source-code-run-and-start/](https://nacos.io/docs/latest/contribution/source-code-run-and-start/) 进行 Nacos 主服务的本地编译和打包
+
+这是因为本模块依赖的 Nacos 服务不会发布到中央仓库中。
