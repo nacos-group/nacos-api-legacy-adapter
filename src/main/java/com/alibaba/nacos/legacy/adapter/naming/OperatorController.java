@@ -28,6 +28,7 @@ import com.alibaba.nacos.naming.core.DistroMapper;
 import com.alibaba.nacos.naming.core.v2.client.Client;
 import com.alibaba.nacos.naming.core.v2.client.impl.IpPortBasedClient;
 import com.alibaba.nacos.naming.core.v2.client.manager.ClientManager;
+import com.alibaba.nacos.naming.core.v2.client.manager.ClientManagerDelegate;
 import com.alibaba.nacos.naming.misc.Loggers;
 import com.alibaba.nacos.naming.misc.SwitchDomain;
 import com.alibaba.nacos.naming.misc.SwitchEntry;
@@ -72,7 +73,7 @@ public class OperatorController {
     
     public OperatorController(SwitchManager switchManager, ServerStatusManager serverStatusManager,
             SwitchDomain switchDomain, DistroMapper distroMapper,
-            ClientManager clientManager) {
+            ClientManagerDelegate clientManager) {
         this.switchManager = switchManager;
         this.serverStatusManager = serverStatusManager;
         this.switchDomain = switchDomain;
