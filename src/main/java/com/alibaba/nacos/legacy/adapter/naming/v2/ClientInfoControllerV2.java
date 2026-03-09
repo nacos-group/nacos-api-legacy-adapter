@@ -27,6 +27,7 @@ import com.alibaba.nacos.core.controller.compatibility.Compatibility;
 import com.alibaba.nacos.core.paramcheck.ExtractorManager;
 import com.alibaba.nacos.naming.core.ClientService;
 import com.alibaba.nacos.naming.core.v2.client.manager.ClientManager;
+import com.alibaba.nacos.naming.core.v2.client.manager.ClientManagerDelegate;
 import com.alibaba.nacos.naming.misc.UtilsAndCommons;
 import com.alibaba.nacos.naming.paramcheck.NamingDefaultHttpParamExtractor;
 import com.alibaba.nacos.plugin.auth.constant.ActionTypes;
@@ -57,7 +58,7 @@ public class ClientInfoControllerV2 {
     
     private final ClientService clientServiceV2Impl;
     
-    public ClientInfoControllerV2(ClientManager clientManager, ClientService clientServiceV2Impl) {
+    public ClientInfoControllerV2(ClientManagerDelegate clientManager, ClientService clientServiceV2Impl) {
         this.clientManager = clientManager;
         this.clientServiceV2Impl = clientServiceV2Impl;
     }
